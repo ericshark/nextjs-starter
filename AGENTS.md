@@ -77,3 +77,13 @@ Refer to the agent runbooks in `.agents/skills/`:
 - **`add-component`**: Guide for creating accessible UI components with variants and Vitest tests.
 - **`add-page`**: Guide for adding App Router routes with metadata, loading states, and error handling.
 - **`full-check`**: Diagnostic guide for fixing lint, type, or test issues.
+
+## Change tracking
+
+After a non-trivial change (new feature, bug fix, schema change,
+or a real design decision — not renames, formatting, or refactors
+with no behavior change), append one line to docs/CHANGES.md:
+
+date — summary — files — status — follow-up (if any)
+
+Trivial changes: skip silently, no log, no comment.
