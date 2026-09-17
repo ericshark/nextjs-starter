@@ -1,7 +1,3 @@
-# System Architecture Overview: Next.js 16 Starter
-
-This project is a standalone, production-ready frontend starter powered by **Next.js 16 (App Router)** and **React 19**.
-
 ## Core Technology Stack
 
 - **Framework**: Next.js 16.3.5 with Turbopack bundler

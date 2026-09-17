@@ -1,82 +1,55 @@
-# Agent & Developer Guidelines: Next.js 16 Starter Template
+# Agent Guidelines
 
-Welcome to the **Next.js 16 Agentic Starter Template**. This document is the authoritative instruction manual for AI coding agents and human developers working in this codebase. Follow these rules to ensure fast development, high code quality, and zero regressions.
+This file defines the shared instructions for coding agents working in this repository.
 
----
+## Project
 
-## 1. Tech Stack & Directory Structure
+Next.js 16 application using:
 
-```
-nextjs-starter/
-├── Makefile                     # Root command runner (make check, make test, make dev)
-├── package.json                 # Scripts: dev, build, lint, typecheck, test, check
-├── vitest.config.ts             # Vitest test configuration
-├── docs/architecture/           # High-signal architectural specifications
-├── .agents/skills/              # Specialized agent runbooks (add-component, add-page, full-check)
-├── public/                      # Static assets (images, icons, fonts)
-├── src/
-│   ├── app/                     # Next.js 16 App Router (Turbopack)
-│   │   ├── layout.tsx           # Root HTML layout with Geist font
-│   │   ├── page.tsx             # Main starter dashboard
-│   │   ├── loading.tsx          # Animated loading fallback
-│   │   ├── error.tsx            # Global error boundary (client component)
-│   │   ├── not-found.tsx        # Custom 404 page
-│   │   └── globals.css          # Tailwind CSS v4 stylesheets
-│   ├── components/              # React components
-│   │   ├── ui/                  # Reusable UI primitives (Button, Card, Badge)
-│   │   └── TemplateDemo.tsx     # Interactive demo component
-│   └── lib/                     # Utilities & configuration
-│       ├── utils.ts             # cn(...) helper (clsx + tailwind-merge)
-│       └── env.ts               # Runtime environment configuration
-└── tests/                       # Vitest unit and component tests
-```
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Vitest and Testing Library
+- ESLint
+- Prettier
 
----
+Important locations:
 
-## 2. Universal Command Cheatsheet
+- `src/app/` — App Router routes and layouts
+- `src/components/` — application components
+- `src/components/ui/` — reusable UI primitives
+- `src/lib/` — shared utilities
+- `tests/` — tests
+- `docs/` — architecture and subsystem documentation
+- `.agents/skills/` — reusable agent procedures
 
-| Task | Command | Description |
-| :--- | :--- | :--- |
-| **Verify Everything** | `make check` (or `npm run check`) | Runs ESLint, TypeScript (`tsc --noEmit`), and Vitest |
-| **Development Server** | `make dev` (or `npm run dev`) | Starts Next.js Turbopack dev server on `http://localhost:3000` |
-| **Run Unit Tests** | `make test` (or `npm run test`) | Executes Vitest component and unit test suite |
-| **Watch Tests** | `npm run test:watch` | Runs Vitest in interactive watch mode |
-| **Type Check** | `make typecheck` (or `npm run typecheck`) | Runs `tsc --noEmit` across all TypeScript files |
-| **Lint Code** | `make lint` (or `npm run lint`) | Runs ESLint 9 with Next.js rules |
-| **Format Code** | `npm run format` | Auto-formats code with Prettier |
-| **Production Build** | `make build` (or `npm run build`) | Creates an optimized Next.js production build |
+## Commands
 
----
+Use the Makefile as the primary command interface.
 
-## 3. Golden Rules for AI Agents
+- `make dev` — development server
+- `make lint` — ESLint
+- `make typecheck` — TypeScript
+- `make test` — Vitest
+- `make build` — production build
+- `make check` — lint, typecheck, and tests
 
-1. **Deterministic Verification Before Done**:
-   - Always run `make check` (or `npm run check`) before declaring a task complete.
-   - All tests must pass and zero TypeScript or ESLint errors are permitted.
+### Components
 
-2. **Server Components by Default**:
-   - Treat all components in `src/app/` as **Server Components** unless interactive state (`useState`, `useEffect`, `useCallback`) or browser events (`onClick`, `onChange`) are needed.
-   - When interactivity is required, add `"use client";` at the very top of the file.
+Reuse existing components and UI primitives before creating new ones.
 
-3. **UI Primitive Reuse**:
-   - When building new UI features, use existing primitives from `src/components/ui/` (`Button`, `Card`, `Badge`).
-   - For styling, use the `cn(...)` utility from `@/lib/utils` to safely merge Tailwind CSS classes.
+Place generic reusable UI primitives in `src/components/ui/`.
 
-4. **Component Test Coverage**:
-   - Whenever creating or modifying a component in `src/components/`, add or update its corresponding test in `tests/<ComponentName>.test.tsx`.
-   - Use `@testing-library/react` and Vitest.
+Use `cn(...)` from `@/lib/utils` when conditional Tailwind class
+composition is needed.
 
-5. **Self-Contained RootLayout**:
-   - Never use auto-generated `LayoutProps` in `layout.tsx`. Always use explicit `Readonly<{ children: React.ReactNode }>`.
+### Testing
 
----
+Add or update tests when introducing or changing meaningful behavior.
 
-## 4. Progressive Context & Skills
+Test observable behavior rather than implementation details.
 
-Refer to the agent runbooks in `.agents/skills/`:
-- **`add-component`**: Guide for creating accessible UI components with variants and Vitest tests.
-- **`add-page`**: Guide for adding App Router routes with metadata, loading states, and error handling.
-- **`full-check`**: Diagnostic guide for fixing lint, type, or test issues.
+Do not weaken, remove, or bypass tests merely to make verification pass.
 
 ## Documentation
 
