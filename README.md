@@ -15,22 +15,22 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```text
 src/app/           App Router pages and layouts
-src/components/    Reusable components and UI primitives
-src/lib/           Shared utilities and environment handling
+src/components/    Application components
+src/lib/           Shared utilities
 tests/             Unit and component tests
 docs/architecture/ Architecture notes
 ```
 
 ## Commands
 
-| Command | Purpose |
-| --- | --- |
-| `make check` | Run linting, type checking, and tests |
-| `make test` | Run Vitest |
-| `make lint` | Run ESLint |
-| `make typecheck` | Run TypeScript checks |
-| `make build` | Create a production build |
-| `make format` | Format files with Prettier |
+| Command          | Purpose                               |
+| ---------------- | ------------------------------------- |
+| `make check`     | Run linting, type checking, and tests |
+| `make test`      | Run Vitest                            |
+| `make lint`      | Run ESLint                            |
+| `make typecheck` | Run TypeScript checks                 |
+| `make build`     | Create a production build             |
+| `make format`    | Format files with Prettier            |
 
 Equivalent npm scripts are available in `package.json`.
 

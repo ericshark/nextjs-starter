@@ -2,14 +2,14 @@
 
 ## File Roles in `src/app/`
 
-| File | Context | Purpose |
-| :--- | :--- | :--- |
-| `layout.tsx` | Server | Top-level HTML shell, font loading (`Geist`), global metadata |
-| `page.tsx` | Server | Route view component |
-| `loading.tsx` | Server | Streaming loading skeleton shown while async data resolves |
-| `error.tsx` | Client (`"use client"`) | Global error boundary catching uncaught runtime exceptions |
-| `not-found.tsx` | Server/Client | Custom 404 handler when `notFound()` is triggered |
-| `globals.css` | CSS | Tailwind CSS v4 directives |
+| File            | Context                 | Purpose                                                       |
+| :-------------- | :---------------------- | :------------------------------------------------------------ |
+| `layout.tsx`    | Server                  | Top-level HTML shell, font loading (`Geist`), global metadata |
+| `page.tsx`      | Server                  | Route view component                                          |
+| `loading.tsx`   | Server                  | Streaming loading skeleton shown while async data resolves    |
+| `error.tsx`     | Client (`"use client"`) | Global error boundary catching uncaught runtime exceptions    |
+| `not-found.tsx` | Server/Client           | Custom 404 handler when `notFound()` is triggered             |
+| `globals.css`   | CSS                     | Tailwind CSS v4 directives                                    |
 
 ## Client Component Boundary Best Practices
 

@@ -1,6 +1,6 @@
 ## Core Technology Stack
 
-- **Framework**: Next.js 16.3.5 with Turbopack bundler
+- **Framework**: Next.js 16 with Turbopack bundler
 - **Runtime**: Node.js 22+ (tested on Node 24)
 - **Language**: TypeScript 5+ in strict mode
 - **Styling**: Tailwind CSS v4 with PostCSS
